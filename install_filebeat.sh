@@ -7,3 +7,4 @@ sudo apt update -y
 sudo apt install filebeat -y
 sudo systemctl start filebeat
 sudo systemctl enable filebeat
+sudo filebeat modules enable system
