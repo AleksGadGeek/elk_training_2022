@@ -1,0 +1,82 @@
+Open DevTools : http://54.176.154.120:5601/app/dev_tools#/console 
+# DEV Tools 
+GET /
+GET _license
+GET _cat/health
+GET _cat/health?v
+GET _cat/nodes
+GET _cat/nodes?v
+PUT easy_index_by_NAME                          # create an index 
+GET _cat/indices?help
+GET _cat/indices
+GET _cat/indices?v
+GET _cat/indices?format=json
+GET _cat/indices?format=text
+GET _cat/indices?format=yaml
+GET _cat/indices?format=smile
+GET _cat/indices?format=cbor
+GET _cat/indices?format=json&pretty                
+GET _cat/indices?v&h=health,index&format=text         # select a header 
+GET _cat/indices?s=index:asc                          # sort 
+PUT demo_settings_index_by_jai
+{
+  "settings": {
+    "number_of_replicas": 2,
+    "number_of_shards": 1
+  }
+}
+GET _cat/indices?v
+PUT subjects_by_jai
+{
+  "mappings": {
+    "properties": {
+      "name": {
+        "type": "text"
+      },
+      "total_marks": {
+        "type": "float"
+      },
+      "passing_marks": {
+        "type": "float"
+      },
+      "description": {
+        "type": "text"
+      }
+    }
+  }
+}
+GET subjects_by_jai
+GET _cat/indices?v
+PUT purchase_jan_2022_by_jai
+{
+  "aliases": {
+    "purchase_last_2022_by_jai": {}
+  }
+}
+GET purchase_jan_2022_by_jai
+GET purchase_last_2022_by_jai
+GET _cat/aliases
+
+# CURD IN ELASTIC SEARCH 
+PUT data_by_NAME
+GET data_by_NAME
+POST data_by_NAME/_doc/1
+{
+  "Name" : "NAME",
+  "User" : "user--",
+  "Password" : "pass123"
+}
+GET data_by_NAME/_doc/1
+PUT data_by_NAME/_doc/1 
+{
+  "Name" : "NAME",
+  "User" : "user--",
+  "Password" : "pass123456"
+}
+GET data_by_NAME/_doc/1
+DELETE data_by_NAME/_doc/1
+DELETE data_by_NAME
+
+Try below requests - 
+   GET /_cat/indices?v                                  # GET YOUR INDEX NAME 
+   GET /INDEXNAME/_search?pretty=true&q=*:*
