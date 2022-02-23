@@ -8,5 +8,5 @@ node.master: false
 node.data: true
 node.ingest: true
 node.ml: false
-discovery.seed_hosts: ["172.31.0.252"]  
+discovery.seed_hosts: ["$IP_Master"]  #Ip address of master node on elasticsearch
 cluster.initial_master_nodes: ["MASTER"]
