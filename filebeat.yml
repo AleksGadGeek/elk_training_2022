@@ -1,0 +1,6 @@
+output.elasticsearch.index: "customluisluna-%{[agent.version]}"
+setup.template.name: "customluisluna"
+setup.template.pattern: "customluisluna-%{[agent.version]}"
+
+hosts: ["54.176.154.120:9200"]
+setup.ilm.enabled: false
