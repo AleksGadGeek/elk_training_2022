@@ -161,3 +161,25 @@ GET */_search
  },
  "_source": ["message"]
 }
+
+GET */_search
+{
+  "size": 100, 
+ "query": {
+   "match_phrase": {
+      "message": "Password Last Set"
+   }
+ },
+ "_source": ["message"]
+}
+
+GET */_search
+{
+  "size": 1, 
+ "query": {
+   "match_phrase_prefix": {
+      "message": "SAM"
+   }
+ },
+ "_source": ["message"]
+}
