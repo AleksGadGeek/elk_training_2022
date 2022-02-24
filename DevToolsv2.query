@@ -206,3 +206,81 @@ GET .ds-winlog-8.0.0-2022.02.10-2022.02.23-000001/_search
  },
  "_source": ["message"]
 }
+
+POST _sql?format=txt
+{
+  "query": """
+  SELECT * FROM ".tasks"
+  """
+}
+
+POST _sql?format=txt
+{
+  "query": """
+  SELECT ecs.version, host.hostname, host.os.version, system.load.cores  FROM "mb-jaik-7.17.0-2022.02.24" limit 10
+ 
+  """
+}
+
+POST _sql?format=txt
+{
+  "query": """
+  SELECT ecs.version, host.hostname, host.os.version, system.load.cores  FROM "mb-jaik-7.17.0-2022.02.24" where ecs.version = '1.12.0' limit 1
+  """
+}
+
+
+GET pb-jai-7.17.0-2022.02.24/_search
+GET pb-jai-7.17.0-2022.02.24/_search
+{
+  "aggs": {
+    "max_bytes": {
+      "max": { "field": "source.bytes" }
+    }
+  }, 
+  "_source": ["source.bytes", "source.ip"]
+}
+
+GET pb-jai-7.17.0-2022.02.24/_search
+{
+  "size": 0, 
+  "aggs": {
+    "min_bytes": {
+      "min": { "field": "source.bytes" }
+    }
+  }, 
+  "_source": ["source.bytes", "source.ip"]
+}
+
+GET pb-jai-7.17.0-2022.02.24/_search
+{
+  "size": 0, 
+  "aggs": {
+    "total_bytes": {
+      "sum": { "field": "source.bytes" }
+    }
+  }, 
+  "_source": ["source.bytes", "source.ip"]
+}
+
+GET pb-jai-7.17.0-2022.02.24/_search
+{
+  "size": 0, 
+  "aggs": {
+    "avg_bytes": {
+      "avg": { "field": "source.bytes" }
+    }
+  }, 
+  "_source": ["source.bytes", "source.ip"]
+}
+
+GET pb-*/_search
+{
+  "size": 0, 
+  "aggs": {
+    "avg_bytes": {
+      "avg": { "field": "source.bytes" }
+    }
+  }, 
+  "_source": ["source.bytes", "source.ip"]
+}
