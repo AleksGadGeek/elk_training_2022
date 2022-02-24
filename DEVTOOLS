@@ -116,3 +116,16 @@ GET mb-*/_search
   },
   "_source": ["system", "cloud", "service"]
 }
+
+
+GET mb-luis-7.17.0-2022.02.23,pb-luis-7.17.0-2022.02.24/_search
+{
+  "size" : 5000,        #used to define how many results we want to see en results
+  "_source": ["system.cpu.cores","cloud.machine.type","service.type"]
+}
+
+GET mb-luis-7.17.0-2022.02.23,pb-luis-7.17.0-2022.02.24/_search
+{
+  "size" : 4000,
+  "_source" : ["index"]
+}
