@@ -1,0 +1,6 @@
+# Logstash  Plugins Ref: 
+https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html
+https://www.elastic.co/guide/en/logstash/current/plugins-inputs-file.html
+https://www.elastic.co/guide/en/logstash/6.8/plugins-inputs-imap.html
+https://www.elastic.co/guide/en/logstash/current/plugins-filters-csv.html
+https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html
