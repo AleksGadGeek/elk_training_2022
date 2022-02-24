@@ -1,0 +1,10 @@
+#!/bin/bash
+# CSV UPLOAD TO ES - Logstash
+cd ~
+cd logstash-7.17.0/
+bin/logstash-plugin list
+wget https://raw.githubusercontent.com/Jaibw/elk/main/cm23FEB2022bhav.csv
+wget https://raw.githubusercontent.com/Jaibw/elk/main/logstash/csv-upload.conf
+sed 's/USERNAME/name/g' csv-upload.conf > csvupload.conf
+cat csvupload.conf
+bin/logstash -f csvupload.conf 
