@@ -129,3 +129,19 @@ GET mb-luis-7.17.0-2022.02.23,pb-luis-7.17.0-2022.02.24/_search
   "size" : 4000,
   "_source" : ["index"]
 }
+
+GET mb-luis-7.17.0-2022.02.23/_search
+GET mb-*/_search
+{
+  "size" : 5000,
+  "from" : 5000,
+  "query" : {
+    "terms" : {
+      "agent.hostname" : [
+        "ip-172-31-1-61",
+        "ip-172-31-19-40"
+        ]
+    }
+  },
+  "_source": ["agent"]
+}
