@@ -80,3 +80,39 @@ DELETE data_by_NAME
 Try below requests - 
    GET /_cat/indices?v                                  # GET YOUR INDEX NAME 
    GET /INDEXNAME/_search?pretty=true&q=*:*
+
+
+#QUERY t find anything on an index with search
+
+GET _cat/indices?v
+
+GET mb-luis-7.17.0-2022.02.23/_search
+GET mb-*/_search
+
+
+GET mb-*/_search
+{
+  "query" :{
+    "term": {
+      "agent.hostname": {
+        "value": "ip-172-31-11-124"
+      }
+    }
+  },
+  "fields": [
+    "agent-hostname"
+  ],
+  "_source": false
+}
+
+GET mb-*/_search
+{
+  "query" :{
+    "term": {
+      "host.ip": {
+        "value": "172.31.11.124"
+      }
+    }
+  },
+  "_source": ["system", "cloud", "service"]
+}
